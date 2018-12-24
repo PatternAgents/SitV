@@ -5,9 +5,9 @@
 
 "Spoken into the Void" is an CPU upgrade/add-on for the Teensy3.2 CPU to the larger Teensy 3.5/3.6 CPU, 
 yielding more memory space and other resouces. The upgrade is simple, remove the existing Teensy3.2 CPU, 
-and plug in the "Spoken Into SitV" board in it's place.
+and plug in the "Spoken into the Void" board in it's place.
 
-"Spoken Into SitV" has the following features :
+"Spoken into the Void" has the following features :
 
 * Eurorack 3U/8HP compatible
 * Teensy 3.6 Based (32 bit 180 MHz ARM Cortex-M4 processor with floating point unit and DSP)
@@ -45,7 +45,7 @@ Jacks : Stereo Line Input, Stereo Line Output, UART, I2C
 ---------------------------------------
 ## TheVoid Applications <a name="TheVoid_Applications"/>
 
-"Spoken Into SitV" upgrades a Teensy.2 CPU Socket to accept the larger Teensy 3.6 embedded CPU module.
+"Spoken into the Void" upgrades a Teensy.2 CPU Socket to accept the larger Teensy 3.6 embedded CPU module.
 
 - "SitV" is also "breadboard friendly" and can be used to develop other circuits based on the Teensy 3.6 embedded CPU module
 together with several Teensy Audio Modules.
@@ -68,10 +68,10 @@ together with several Teensy Audio Modules.
 ## TheVoid Model Images
 
 
-[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_top.png?raw=true)Spoken Into SitV - Top Side](https://github.com/patternagents/TheVoid)
+[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_top.png?raw=true)Spoken into the Void - Top Side](https://github.com/patternagents/TheVoid)
 
 
-[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_bot.png?raw=true)Spoken Into SitV - Bottom Side](https://github.com/patternagents/TheVoid)
+[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_bot.png?raw=true)Spoken into the Void - Bottom Side](https://github.com/patternagents/TheVoid)
 
 
 ---------------------------------------
