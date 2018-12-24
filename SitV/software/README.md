@@ -11,7 +11,7 @@ the following firmware can be used :
 
 ---------------------------------------
 
-## TheVoid Documentation Index <a name="TheVoid_documentation_index"/>
+## SitV Documentation Index <a name="SitV_documentation_index"/>
 
 [Ornament and Crime](http://ornament-and-cri.me/)
 
