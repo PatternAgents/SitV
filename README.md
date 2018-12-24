@@ -45,12 +45,16 @@ Jacks : Stereo Line Input, Stereo Line Output, UART, I2C
 ---------------------------------------
 ## SitV Applications <a name="SitV_Applications"/>
 
-"Spoken into the Void" upgrades a Teensy.2 CPU Socket to accept the larger Teensy 3.6 embedded CPU module.
+"Spoken into the Void" upgrades a [Teensy3.2 embedded CPU](https://www.pjrc.com/store/teensy32.html) Socket to accept the larger [Teensy 3.6 embedded CPU](https://www.pjrc.com/store/teensy36.html) module.
+"Spoken into the Void" is designed to be compatible with the [Teensy Audio Shield](https://www.pjrc.com/store/teensy3_audio.html),
+and can accept up to two shields, supporting up to four (4) 16 bit audio channels.
 
 - "SitV" is also "breadboard friendly" and can be used to develop other circuits based on the Teensy 3.6 embedded CPU module
 together with several Teensy Audio Modules.
 - "SitV" can also be used with the [8HP micro:Ornament and Crime Eurorack module from JakPlug](https://github.com/jakplugg/uO_c)
 - "SitV" can also be used with the [8HP micro:Temps Utile Eurorack module from JakPlug](https://github.com/jakplugg/T_u)
+
+"SitV" is primarily a firmware development and testing tool, for developing new Eurorack based synthesizer modules and firmware.
 
 ---------------------------------------
 ## SitV Status <a name="SitV_Status"/>
