@@ -54,7 +54,9 @@ together with several Teensy Audio Modules.
 - "SitV" can also be used with the [8HP micro:Ornament and Crime Eurorack module from JakPlug](https://github.com/jakplugg/uO_c)
 - "SitV" can also be used with the [8HP micro:Temps Utile Eurorack module from JakPlug](https://github.com/jakplugg/T_u)
 
-"SitV" is primarily a firmware development and testing tool, for developing new Eurorack based synthesizer modules and firmware.
+"SitV" is primarily a firmware development and testing tool, 
+for developing new Eurorack based synthesizer modules and firmware.
+
 
 ---------------------------------------
 ## SitV Status <a name="SitV_Status"/>
