@@ -9,12 +9,12 @@ and plug in the "Spoken into the Void" board in it's place.
 
 "Spoken into the Void" has the following features :
 
-* Eurorack 3U/8HP compatible
-* Teensy 3.6 Based (32 bit 180 MHz ARM Cortex-M4 processor with floating point unit and DSP)
-* 4X Flash Upgrade (1M)
-* 4X RAM Upgrade (256K)
+* Breadboard Friendly and Eurorack 3U/8HP compatible
+* Teensy 3.6 Based (32 bit 120/240 MHz ARM Cortex-M4 processor with floating point unit and DSP)
+* 4X Flash Upgrade (1.0 Megabyte)
+* 4X RAM Upgrade   (256 Kilobytes)
 * Supports up to two(2) Teensy Audio Shields for four(4) channel 16-bit Audio I/O
-* 4X external (16 bit) Analog to digital converters (ADS1115) for independent CV sampling
+* 4X (optional/external)  Analog to digital converters (ADS1115 16-bit) for independent CV sampling
 * USB Full-Speed Device (USB Audio, MIDI, COM, HID)
 * USB Full-Speed Host (USB Keyboard, peripherals)
 * Two  (2) AC coupled, line level audio input channels 
@@ -23,24 +23,20 @@ and plug in the "Spoken into the Void" board in it's place.
 * I2C Jack for Controls & UI Expansion
 * 32K bytes NVSRAM (non-volatile memory) for configuration memory (with Embedis support)
 
-Format : Eurorack / (Dual) Breadboard Friendly
+Format : Eurorack (3U/8HP)
 
-Height : 3U 
-
-Width: 8HP
-
-Depth : 1.0 cm
+Dimensions :  110mm x 40mm
 
 Power : +5V (USB) 200mA
 
-Jacks : Stereo Line Input, Stereo Line Output, UART, I2C
+Jacks(Grove) : Stereo Line Input, Stereo Line Output, UART, I2C
 
 ---------------------------------------
 
-[![micro:O&C](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/uO_C.png?raw=true)](https://github.com/patternagents/TheVoid)  [![TheVoid](https://img.youtube.com/vi/XBFi51OQsEs/0.jpg)](https://www.youtube.com/watch?v=XBFi51OQsEs)
+[![micro:O&C](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/uO_C.png?raw=true)](https://github.com/patternagents/SitV)  [![SitV](https://img.youtube.com/vi/XBFi51OQsEs/0.jpg)](https://www.youtube.com/watch?v=XBFi51OQsEs)
 
 
-[![TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/osh_boards.png?raw=true)SitV](https://github.com/PatternAgents/TheVoid)
+[![SitV](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/osh_boards.png?raw=true)SitV](https://github.com/PatternAgents/SitV)
 
 ---------------------------------------
 ## SitV Applications <a name="SitV_Applications"/>
