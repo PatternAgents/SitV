@@ -37,10 +37,10 @@ Jacks : Stereo Line Input, Stereo Line Output, UART, I2C
 
 ---------------------------------------
 
-[![micro:O&C](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/uO_C.png?raw=true)](https://github.com/patternagents/TheVoid)  [![TheVoid](https://img.youtube.com/vi/XBFi51OQsEs/0.jpg)](https://www.youtube.com/watch?v=XBFi51OQsEs)
+[![micro:O&C](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/uO_C.png?raw=true)](https://github.com/patternagents/TheVoid)  [![TheVoid](https://img.youtube.com/vi/XBFi51OQsEs/0.jpg)](https://www.youtube.com/watch?v=XBFi51OQsEs)
 
 
-[![TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/osh_boards.png?raw=true)SitV](https://github.com/PatternAgents/TheVoid)
+[![TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/osh_boards.png?raw=true)SitV](https://github.com/PatternAgents/TheVoid)
 
 ---------------------------------------
 ## TheVoid Applications <a name="TheVoid_Applications"/>
@@ -68,10 +68,10 @@ together with several Teensy Audio Modules.
 ## TheVoid Model Images
 
 
-[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_top.png?raw=true)Spoken into the Void - Top Side](https://github.com/patternagents/TheVoid)
+[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/SitV_top.png?raw=true)Spoken into the Void - Top Side](https://github.com/patternagents/SitV)
 
 
-[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/TheVoid/master/TheVoid/images/TheVoid_bot.png?raw=true)Spoken into the Void - Bottom Side](https://github.com/patternagents/TheVoid)
+[![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/SitV_bot.png?raw=true)Spoken into the Void - Bottom Side](https://github.com/patternagents/SitV)
 
 
 ---------------------------------------
@@ -82,9 +82,9 @@ together with several Teensy Audio Modules.
 
 [micro:Ornament and Crime](https://github.com/jakplugg/uO_c)
 
-[TheVoid Project](https://github.com/PatternAgents/TheVoid/wiki)
+[TheVoid Project](https://github.com/PatternAgents/SitV/wiki)
 
-[TheVoid Hardware](https://github.com/patternagents/TheVoid/tree/master/TheVoid/revisions/)
+[TheVoid Hardware](https://github.com/patternagents/SitV/tree/master/SitV/revisions/)
 
 
 ---------------------------------------
