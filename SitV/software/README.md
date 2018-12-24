@@ -17,9 +17,9 @@ the following firmware can be used :
 
 [micro:Ornament and Crime](https://github.com/jakplugg/uO_c)
 
-[TheVoid Project](https://github.com/PatternAgents/TheVoid/wiki)
+[SitV Project](https://github.com/PatternAgents/SitV/wiki)
 
-[TheVoid Hardware](https://github.com/patternagents/TheVoid/tree/master/TheVoid/revisions/)
+[SitV Hardware](https://github.com/patternagents/SitV/tree/master/SitV/revisions/)
 
 
 ---------------------------------------
