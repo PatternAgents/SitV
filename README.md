@@ -43,7 +43,7 @@ Jacks : Stereo Line Input, Stereo Line Output, UART, I2C
 [![TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/osh_boards.png?raw=true)SitV](https://github.com/PatternAgents/TheVoid)
 
 ---------------------------------------
-## TheVoid Applications <a name="TheVoid_Applications"/>
+## SitV Applications <a name="SitV_Applications"/>
 
 "Spoken into the Void" upgrades a Teensy.2 CPU Socket to accept the larger Teensy 3.6 embedded CPU module.
 
@@ -53,7 +53,7 @@ together with several Teensy Audio Modules.
 - "SitV" can also be used with the [8HP micro:Temps Utile Eurorack module from JakPlug](https://github.com/jakplugg/T_u)
 
 ---------------------------------------
-## TheVoid Status <a name="TheVoid_Status"/>
+## SitV Status <a name="SitV_Status"/>
 
 **11/28/2018:** 
 - R1.0.0 : Initial Layout sent to OSHpark
@@ -64,8 +64,12 @@ together with several Teensy Audio Modules.
 - Teensy3.6 SPI Bus Issue with alternate SPI pins
 - Ornament&Crime R1.3.3 Up and Running
 
+**12/23/2018:**
+- "Serial+MIDIx16+Audio" Tested and working
+- "USBHost" (MIDI Host) Tested and working
+
 ---------------------------------------
-## TheVoid Model Images
+## SitV Model Images
 
 
 [![patternagents TheVoid](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/SitV_top.png?raw=true)Spoken into the Void - Top Side](https://github.com/patternagents/SitV)
@@ -76,7 +80,7 @@ together with several Teensy Audio Modules.
 
 ---------------------------------------
 
-## TheVoid Documentation Index <a name="TheVoid_documentation_index"/>
+## SitV Documentation Index <a name="TheVoid_documentation_index"/>
 
 [Ornament and Crime](http://ornament-and-cri.me/)
 
