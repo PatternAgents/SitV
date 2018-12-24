@@ -90,9 +90,9 @@ together with several Teensy Audio Modules.
 
 [micro:Ornament and Crime](https://github.com/jakplugg/uO_c)
 
-[TheVoid Project](https://github.com/PatternAgents/SitV/wiki)
+[SitV Project](https://github.com/PatternAgents/SitV/wiki)
 
-[TheVoid Hardware](https://github.com/patternagents/SitV/tree/master/SitV/revisions/)
+[SitV Hardware](https://github.com/patternagents/SitV/tree/master/SitV/revisions/)
 
 
 ---------------------------------------
