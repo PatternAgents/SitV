@@ -67,8 +67,8 @@ for developing new Eurorack based synthesizer modules and firmware.
 - Ornament&Crime R1.3.3 Up and Running
 
 **12/23/2018:**
-- "Serial+MIDIx16+Audio" Tested and working
-- "USBHost" (MIDI Host) Tested and working
+- "Serial+MIDIx16+Audio" compiles with Hemishere 1.7A
+- "MIDIx16" to Serial4 MIDI router : Tested and Working
 
 ---------------------------------------
 ## SitV Model Images
