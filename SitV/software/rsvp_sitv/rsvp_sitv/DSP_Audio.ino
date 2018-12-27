@@ -60,7 +60,7 @@ AudioConnection          patchCord20(mixer_usb_right, 0, usb_out, 1);
 // GUItool: end automatically generated code
 
 // Add any Wavetable Samples here...
-#include "Flute_100kbyte_samples.h"
+#include "piano_samples.h"
 
 void setup_DSP_Audio() 
 {
@@ -68,7 +68,7 @@ void setup_DSP_Audio()
     AudioMemory(20);
     dacs_out.analogReference(INTERNAL);
     wavetable.setFrequency(1000);
-    wavetable.setInstrument(Flute_100kbyte);
+    wavetable.setInstrument(piano);
     wavetable.amplitude(1);
     sine.frequency(440);
     sine.amplitude(1);

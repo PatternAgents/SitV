@@ -9,4 +9,7 @@
 	#include <EEPROM.h>
 	#include <Embedis.h>
 
+	#include "rsvp_options.h"
+	#include "rsvp_pins.h"
+
 #endif

@@ -15,6 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "rsvp.h"
+
 // Adds some useful commands to Embedis.
 // We'll add some Arduino I/O commands for making it interpretive...
 //
@@ -75,6 +77,24 @@ void setup_commands()
         if (e->argc != 2) return e->response(Embedis::ARGS_ERROR);
         int pin = String(e->argv[1]).toInt();
         e->response(':', I2C_ADC_Read(pin));
+    });
+    
+    /* SDcard Information */
+    Embedis::command( F("sdInfo"), [](Embedis* e) {
+        sdCardInfo();
+        e->response(Embedis::OK);
+    });
+
+    /* SDcard root directory */
+    Embedis::command( F("ls"), [](Embedis* e) {
+        sdListFiles();
+        e->response(Embedis::OK);
+    });
+
+    Embedis::command( F("cat"), [](Embedis* e) {
+        if (e->argc != 2) return e->response(Embedis::ARGS_ERROR);
+         sdCatFile(e->argv[1]);
+         e->response(Embedis::OK);
     });
 
 }

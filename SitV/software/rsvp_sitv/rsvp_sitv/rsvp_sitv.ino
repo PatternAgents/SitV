@@ -57,6 +57,12 @@ void setup()
     setup_DSP_Audio();
     LOG( String() + F("[ RSVP : DSP_Audio  : DSP/Audio driver Installed ]") );
 
+    SDcard_setup();
+    LOG( String() + F("[ RSVP : SDCard     : SDIO Driver Installed ]") );
+
+    SPI_OLED_setup(); 
+    LOG( String() + F("[ RSVP : SD1106     : OLED Driver Installed ]") );    
+
     setup_commands();
     LOG( String() + F("[ RSVP : commands   : type 'commands' to get a list of Installed Commands ]") );
 
@@ -66,7 +72,7 @@ void setup()
 
 void loop() 
 {
-    /* Always call the process method fro the main loop to run the Embedis system */
+    /* Always call the process method from the main loop (or a timer) to run the Embedis system */
     embedis.process();
 
     /* Give the internal RTOS time to task switch in ESP8266, Edison, Currie, etc.   */
