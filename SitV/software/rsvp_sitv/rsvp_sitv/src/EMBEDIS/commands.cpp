@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "rsvp.h"
+#include "../../rsvp.h"
 
 // Adds some useful commands to Embedis.
 // We'll add some Arduino I/O commands for making it interpretive...
@@ -23,7 +23,7 @@
 // Call commands_setup() from your main setup() function.
 // e.g. commands_setup();
 
-void commands_setup()
+void commands_setup(void)
 {
     /* create an interactive "pinMode" command */
     Embedis::command( F("pinMode"), [](Embedis* e) {

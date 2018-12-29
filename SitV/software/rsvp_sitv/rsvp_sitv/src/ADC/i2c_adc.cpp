@@ -1,4 +1,4 @@
-/*  I2C_ADC
+/*  rsvp - Reference System Virtual Platform
     Copyright (C) 2015, 2016, 2017, 2018 PatternAgents, LLC
 
     This program is free software: you can redistribute it and/or modify
@@ -14,19 +14,15 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "../../rsvp.h"
 
-#include <Wire.h>
-#include <Adafruit_ADS1015.h>
-Adafruit_ADS1015 ads;  /* Use ADS1015 for 12-bit version, ADS1115 for 16-bit version */
+Adafruit_ADS1015 eadc;  /* Use ADS1015 for 12-bit version, ADS1115 for 16-bit version */
 
   // simple globals for now...
   int i2c_adc[4]  = { 0, 0, 0, 0 };
-  
-  // uncomment for debug messages
-  //#define I2C_ADC_DEBUG  1
 
-void setup_I2C_ADC() 
-{
+void I2C_ADC_setup(const uint8_t gain) {
+  //
   // The ADC input range (or gain) can be changed via the following
   // functions, but be careful never to exceed VDD +0.3V max, or to
   // exceed the upper and lower limits if you adjust the input range!
@@ -42,13 +38,36 @@ void setup_I2C_ADC()
   
   // need to adjust the input amps to maximize the range
   // it's not good right now  @ 0-> 3.3V
-  ads.setGain(GAIN_ONE);        // 1x gain   +/- 4.096V  1 bit = 2mV      0.125mV
-  ads.begin();
+  switch (gain) {
+  case 0 :
+		eadc.setGain(GAIN_TWOTHIRDS);
+		break;
+  case 1 :
+		eadc.setGain(GAIN_ONE);
+		break;
+  case 2 :
+		eadc.setGain(GAIN_TWO);
+		break;
+  case 3 :
+		eadc.setGain(GAIN_FOUR);
+		break;
+  case 4 :
+		eadc.setGain(GAIN_EIGHT);
+		break;
+  case 5 :
+		eadc.setGain(GAIN_SIXTEEN);
+		break;
+  default :
+		eadc.setGain(GAIN_ONE);        // 1x gain   +/- 4.096V  1 bit = 2mV      0.125mV
+	  break;
+  }
+  
+  eadc.begin();  // start the external ADC driver
 }
 
 int I2C_ADC_Read(uint8_t pin) {
   if (pin < 4) {
-    i2c_adc[pin] = ads.readADC_SingleEnded(pin);
+    i2c_adc[pin] = eadc.readADC_SingleEnded(pin);
     return(i2c_adc[pin]);
   } else {
     return(0);
@@ -56,18 +75,17 @@ int I2C_ADC_Read(uint8_t pin) {
 }
 
 // simple loop, needs to be recoded to be interrupt/timer driven...
-void loop_I2C_ADC() 
+void I2C_ADC_loop() 
 {
-  
-  i2c_adc[0] = ads.readADC_SingleEnded(0);
-  i2c_adc[1] = ads.readADC_SingleEnded(1);
-  i2c_adc[2] = ads.readADC_SingleEnded(2);
-  i2c_adc[3] = ads.readADC_SingleEnded(3);
+  i2c_adc[0] = eadc.readADC_SingleEnded(0);
+  i2c_adc[1] = eadc.readADC_SingleEnded(1);
+  i2c_adc[2] = eadc.readADC_SingleEnded(2);
+  i2c_adc[3] = eadc.readADC_SingleEnded(3);
 
-  #ifdef I2C_ADC_DEBUG
-    Serial.print("I2C_ADC 0: "); Serial.println(i2c_adc[0]);
-    Serial.print("I2C_ADC 1: "); Serial.println(i2c_adc[1]);
-    Serial.print("I2C_ADC 2: "); Serial.println(i2c_adc[2]);
-    Serial.print("I2C_ADC 3: "); Serial.println(i2c_adc[3]);
+  #ifdef PRINT_DEBUG
+    RSVP_CONSOLE.print("I2C_ADC 0: "); RSVP_CONSOLE.println(i2c_adc[0]);
+    RSVP_CONSOLE.print("I2C_ADC 1: "); RSVP_CONSOLE.println(i2c_adc[1]);
+    RSVP_CONSOLE.print("I2C_ADC 2: "); RSVP_CONSOLE.println(i2c_adc[2]);
+    RSVP_CONSOLE.print("I2C_ADC 3: "); RSVP_CONSOLE.println(i2c_adc[3]);
   #endif
 }

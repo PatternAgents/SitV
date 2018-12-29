@@ -1,4 +1,4 @@
-/*  RSVP - 
+/*  rsvp - Reference System Virtual Platform
     Copyright (C) 2015, 2016, 2017, 2018 PatternAgents, LLC
 
     This program is free software: you can redistribute it and/or modify
@@ -15,8 +15,8 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <SD.h>
-#include <SPI.h>
+#include "../../rsvp.h"
+
 const int sdCardSelect = BUILTIN_SDCARD;
 Sd2Card card;
 SdVolume volume;
@@ -32,7 +32,7 @@ void SDcard_setup(void) {
     }
 }
 
-void sdListFiles() {
+void sdListFiles(void) {
   Serial.println("-------------------");
     // Initialize SD Card
     // use SD library (SDcard chipselect, (optional) spi speed)
@@ -75,7 +75,7 @@ void sdCatFile(char *filepath) {
   } 
 }
 
-void sdCardInfo() {
+void sdCardInfo(void) {
   Serial.println("-------------------");
     // Initialize SD Card
     // use SD library (SDcard chipselect, (optional) spi speed)

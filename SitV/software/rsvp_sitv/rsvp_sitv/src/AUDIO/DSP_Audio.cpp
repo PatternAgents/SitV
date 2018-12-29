@@ -19,12 +19,12 @@
 
     DSP Audio - Audio Subsystem
 
-    A vanilla wrapper (wafer?) around the Teensy Audio System
+    A vanilla wrapper (wafer thin?) around the Teensy Audio System
     
    ======================================================================================
 */
 
-#include "rsvp.h"
+#include "../../rsvp.h"
 
 // GUItool: begin automatically generated code
 AudioInputAnalogStereo   adcs_in;          //xy=249,392
@@ -60,7 +60,7 @@ AudioConnection          patchCord20(mixer_usb_right, 0, usb_out, 1);
 // GUItool: end automatically generated code
 
 
-void DSP_Audio_setup() 
+void DSP_Audio_setup(void) 
 {
     //initialize all the Audio objects.
     AudioMemory(20);

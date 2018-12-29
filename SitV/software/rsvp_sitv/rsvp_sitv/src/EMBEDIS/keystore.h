@@ -14,32 +14,11 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef RSVP_H_
-#define RSVP_H_
+#ifndef KEYSTORE_H_
+#define KEYSTORE_H_
 
-  #include <Arduino.h>
-  #include <stdarg.h>
-	#include <Audio.h>
-	#include <Wire.h>
-	#include <SPI.h>
-	#include <SD.h>
-	#include <SerialFlash.h>
-	#include <Embedis.h>
+#include <String.h>
 
-	#include "rsvp_options.h"
-	#include "rsvp_pins.h"
-    #include "src/util/util_misc.h"
-	#include "src/EEPROM/ieeprom.h"
-	#include "src/ADC/i2c_adc.h"
-	#include "src/FRAM/i2c_fram.h"
-	#include "src/SDcard/SDcard.h"
-	#include "src/AUDIO/DSP_Audio.h"
-	#include "src/GFX/spi_oled.h"
-	#include "src/EMBEDIS/commands.h"
-	#include "src/EMBEDIS/keystore.h"
-
-  // Include Wavetable and Waveform Samples for the DSP_Audio System
-  // Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!
-  #include "src/samples/piano_samples.h" 
+  extern String rsvp_board(void);
 
 #endif

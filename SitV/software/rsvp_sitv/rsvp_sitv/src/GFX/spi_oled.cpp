@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "rsvp.h"
+#include "../../rsvp.h"
 
 #if (RSVP_DISPLAY_TYPE == SH1106)
   #include <Adafruit_GFX.h>
@@ -31,7 +31,7 @@
     #error("Height incorrect, please fix Adafruit_SH1106.h!");
   #endif
 
-  void SPI_OLED_setup() {
+  void SPI_OLED_setup(void) {
     display.begin();
     display.clearDisplay();
     display.setTextSize(1);
@@ -47,11 +47,11 @@
     display.display();
   }
 
-  void SPI_OLED_loop() {
+  void SPI_OLED_loop(void) {
     display.display();
   }
 #else
   // stubs for others right now...
-  void SPI_OLED_setup() { }
-  void SPI_OLED_loop()  { }
+  void SPI_OLED_setup(void) { }
+  void SPI_OLED_loop(void)  { }
 #endif

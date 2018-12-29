@@ -7,7 +7,7 @@
 
 #if (RSVP_PLATFORM == SITV)
   // "Spoken Into The Void" and "QuadtroTeenia" Pin Outs for Teensy 3.5 & 3.6"
-  #ifdef FLIP_180
+  #if (RSVP_DISPLAY_ORIENTATION == 0)
     #define CV4 33  //19
     #define CV3 34  //18
     #define CV2 35  //20
@@ -36,7 +36,7 @@
   #endif
 
 // NOTE: encoder pins R1/R2 changed for rev >= 2c
-  #ifdef FLIP_180
+  #if (RSVP_DISPLAY_ORIENTATION == 0)
     #define encL1 20  //16
     #define encL2 29  //15
     #define butL  39  //14
@@ -138,7 +138,7 @@
       #define RSVP_FRAM_I2C_SIZE  32767    // FRAM Control Bus size      
 #else
 // "Original O&C, uO&C, Buchla, etc."
-    #ifdef FLIP_180
+    #if (RSVP_DISPLAY_ORIENTATION == 0)
       #define CV4 19
       #define CV3 18
       #define CV2 20

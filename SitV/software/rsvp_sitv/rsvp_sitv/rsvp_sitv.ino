@@ -20,7 +20,7 @@
     "Spoken Into The Void" & QuadroTeenia Hardware Platforms
     --------------------------------------------------------
 
-    Intended for Teensy LC, 3.2, 3.5, 3.6, 4.0 Portability 
+    Intended for 3.5, 3.6, 4.0 portability over raw performance
     (we'll see how well that goes...)
     
    ======================================================================================
@@ -31,27 +31,28 @@
 // Use the Arduino serial monitor and type "COMMANDS" to get started.
 // Make sure "No line ending" is -NOT- selected. All others should work.
 //
-Embedis embedis(Serial);
+Embedis embedis(RSVP_CONSOLE);
 
 void setup() 
 {
-    Serial.begin(115200);
+    // Start the Serial Console
+    RSVP_CONSOLE.begin(115200);
     // wait for serial port to connect 
-    // !!! comment out for live instruments !!!
-    // leave it in if you want to see the whole startup LOG...
-    // while (!Serial) { ; }
+    #if (RSVP_CONSOLE_WAIT)
+      while (!RSVP_CONSOLE) { ; }
+    #endif
 
     // Start Logging
     LOG( String() + F("[ RSVP : Embedis    : Installed ]") );
     
     // start all the subsystems and log it
-    EEPROM_setup();
+    EEPROM_setup("EEPROM");
     LOG( String() + F("[ RSVP : EEPROM     : EEPROM Embedis dictionary Installed ]") );
     
-    setup_I2C_FRAM();
+    I2C_FRAM_setup("FRAM");
     LOG( String() + F("[ RSVP : Embedis    : FM24W256-G Embedis dictionary Installed ]") );
     
-    setup_I2C_ADC(); 
+    I2C_ADC_setup(RSVP_EADC_GAIN); 
     LOG( String() + F("[ RSVP : I2C_ADC    : ADS1015/ADS1115 driver Installed ]") );
 
     DSP_Audio_setup();
@@ -67,7 +68,7 @@ void setup()
     LOG( String() + F("[ RSVP : Embedis    : type 'commands' to get a list of installed Embedis commands ]") );
 
     // end logging
-    //LOG( String() + F(" ") );
+    LOG( String() + F(" ") );
 }
 
 void loop() 
@@ -78,19 +79,4 @@ void loop()
     /* Give the internal RTOS time to task switch in ESP8266, Edison, Currie, etc.   */
     /* not really necessary on AVR or Cortex platforms, but hey - it doesn't hurt... */
     yield(); 
-}
-
-// This will log to an embedis channel called "log".
-// Use SUBSCRIBE LOG to get these messages.
-// Logs are also printed to Serial until an empty message is received.
-void LOG(const String& message) {
-    static bool inSetup = true;
-    if (inSetup) {
-        if (!message.length()) {
-            inSetup = false;
-            return;
-        }
-        Serial.println(message);
-    }
-    Embedis::publish("log", message);
 }

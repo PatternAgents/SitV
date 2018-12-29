@@ -14,6 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "../../rsvp.h"
 
 // Add an "EEPROM" dictionary to Embedis, using the Ardunio EEPROM API
 //
@@ -31,23 +32,6 @@
 // The Embedis default database is "EEPROM", using the internal EEPROM memory.
 // (or in the case of ESP8266 or Arduino Due, Emulated EEPROM...)
 //
-#include <EEPROM.h>
-
-// Set your particular EEPROM size, which may want to be less than the physical device size.
-// As an example, a 16K byte EEPROM might use only the first 4096 bytes to
-// hold an IMPI, DeviceTree or other persistant data structure. 
-// Since Embedis writes from high memory to low memory, you could use 12K bytes
-// of that memory for an Embedis Keystore, coexisting with the other persistant data structure.
-// If E2END isn't defined you can uncoment the line below and manually set the size (in bytes).
-//
-//#define E2END 1023
-const size_t EEPROM_SIZE = E2END + 1;
-
-void EEPROM_setup() 
-{
-    EEPROM_setup( F("EEPROM") );
-}
-
 void EEPROM_setup(const String& dict) 
 {
     Embedis::dictionary( dict,
@@ -56,3 +40,4 @@ void EEPROM_setup(const String& dict)
         [](size_t pos, char value) { EEPROM.write(pos, value); }
     );
 }
+

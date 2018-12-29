@@ -1,5 +1,5 @@
 /*  Embedis - Embedded Dictionary Server
-    Copyright (C) 2015 PatternAgents, LLC
+    Copyright (C) 2015, 2016, 2017, 2018 PatternAgents, LLC
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -14,11 +14,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+#include "../../rsvp.h"
 
-/* Using I2C based memories, so include "wire" */
-#include <Wire.h>
-/* I2C_FRAM (MB85RC256, FM24V10, etc.) */
-#include "Adafruit_FRAM_I2C.h"
 Adafruit_FRAM_I2C fram = Adafruit_FRAM_I2C();
 
 /* the settings for your particlar I2C_FRAM type... */
@@ -26,12 +23,7 @@ Adafruit_FRAM_I2C fram = Adafruit_FRAM_I2C();
 #define  I2C_FRAM_SIZE   32767      /* FM24V10 = 128K x 8   */
 uint8_t  I2C_FRAM_Addr = 0x50;      /* A2 = A1 = A0 = "0"   */
  
-void setup_I2C_FRAM() 
-{
-    setup_I2C_FRAM( F("I2C_FRAM") );
-}
-
-void setup_I2C_FRAM(const String& dict) 
+void I2C_FRAM_setup(const String& dict) 
 {
    if (fram.begin(I2C_FRAM_Addr)) {
      LOG( String() + F("[ RSVP : I2C_FRAM   : FM24W256-G FRAM Found ]") );
@@ -47,3 +39,4 @@ void setup_I2C_FRAM(const String& dict)
         []() { }
     );
 }
+
