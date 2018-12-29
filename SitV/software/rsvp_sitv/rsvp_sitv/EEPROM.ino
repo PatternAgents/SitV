@@ -21,10 +21,10 @@
 // Due to Wear leveling issues this is not recommended for real-time and changing data.
 // Use SRAM, NVSRAM, FRAM or other suitable storage technology for rapidly changing data sets!
 //
-// To configure an EEPROM dictionary, call setup_EEPROM from your
+// To configure an EEPROM dictionary, call EEPROM_setup from your
 // main setup() function. Optionally, supply the database name you want to use.
-// e.g. setup_EEPROM();
-//      setup_EEPROM( F("MYEEPROM") );
+// e.g. EEPROM_setup();
+//      EEPROM_setup( F("MYEEPROM") );
 //
 // Use the Embedis "select" command to enable your optional database name
 // e.g. embedis-> select MYEEPROM
@@ -43,12 +43,12 @@
 //#define E2END 1023
 const size_t EEPROM_SIZE = E2END + 1;
 
-void setup_EEPROM() 
+void EEPROM_setup() 
 {
-    setup_EEPROM( F("EEPROM") );
+    EEPROM_setup( F("EEPROM") );
 }
 
-void setup_EEPROM(const String& dict) 
+void EEPROM_setup(const String& dict) 
 {
     Embedis::dictionary( dict,
         EEPROM_SIZE,

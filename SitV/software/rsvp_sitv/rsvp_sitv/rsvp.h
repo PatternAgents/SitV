@@ -11,5 +11,6 @@
 
 	#include "rsvp_options.h"
 	#include "rsvp_pins.h"
+  #include "src/samples/piano_samples.h"
 
 #endif

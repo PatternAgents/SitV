@@ -20,10 +20,10 @@
 // Adds some useful commands to Embedis.
 // We'll add some Arduino I/O commands for making it interpretive...
 //
-// Call setup_commands from your main setup() function.
-// e.g. setup_commands();
+// Call commands_setup() from your main setup() function.
+// e.g. commands_setup();
 
-void setup_commands()
+void commands_setup()
 {
     /* create an interactive "pinMode" command */
     Embedis::command( F("pinMode"), [](Embedis* e) {

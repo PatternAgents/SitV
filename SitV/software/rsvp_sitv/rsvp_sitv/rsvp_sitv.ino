@@ -38,23 +38,23 @@ void setup()
     Serial.begin(115200);
     // wait for serial port to connect 
     // !!! comment out for live instruments !!!
-    // leave it in if you want to see the startup LOG...
-    while (!Serial) { ; }
+    // leave it in if you want to see the whole startup LOG...
+    // while (!Serial) { ; }
 
     // Start Logging
     LOG( String() + F("[ RSVP : Embedis    : Installed ]") );
     
     // start all the subsystems and log it
-    setup_EEPROM();
+    EEPROM_setup();
     LOG( String() + F("[ RSVP : EEPROM     : EEPROM Embedis dictionary Installed ]") );
     
     setup_I2C_FRAM();
-    LOG( String() + F("[ RSVP : I2C_FRAM   : FM24W256-G Embedis dictionary Installed ]") );
+    LOG( String() + F("[ RSVP : Embedis    : FM24W256-G Embedis dictionary Installed ]") );
     
     setup_I2C_ADC(); 
     LOG( String() + F("[ RSVP : I2C_ADC    : ADS1015/ADS1115 driver Installed ]") );
 
-    setup_DSP_Audio();
+    DSP_Audio_setup();
     LOG( String() + F("[ RSVP : DSP_Audio  : DSP/Audio driver Installed ]") );
 
     SDcard_setup();
@@ -63,8 +63,8 @@ void setup()
     SPI_OLED_setup(); 
     LOG( String() + F("[ RSVP : SD1106     : OLED Driver Installed ]") );    
 
-    setup_commands();
-    LOG( String() + F("[ RSVP : commands   : type 'commands' to get a list of Installed Commands ]") );
+    commands_setup();
+    LOG( String() + F("[ RSVP : Embedis    : type 'commands' to get a list of installed Embedis commands ]") );
 
     // end logging
     //LOG( String() + F(" ") );

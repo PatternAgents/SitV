@@ -59,10 +59,8 @@ AudioConnection          patchCord19(mixer_usb_left, 0, usb_out, 0);
 AudioConnection          patchCord20(mixer_usb_right, 0, usb_out, 1);
 // GUItool: end automatically generated code
 
-// Add any Wavetable Samples here...
-#include "piano_samples.h"
 
-void setup_DSP_Audio() 
+void DSP_Audio_setup() 
 {
     //initialize all the Audio objects.
     AudioMemory(20);
