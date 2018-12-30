@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 // Adds some useful commands to Embedis.
 // We'll add some Arduino I/O commands for making it interpretive...

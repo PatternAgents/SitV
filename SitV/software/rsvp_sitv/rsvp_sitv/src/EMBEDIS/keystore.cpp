@@ -16,7 +16,7 @@
 */
 // Configuration settings are loaded from the default dictionary (EEPROM).
 
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 // board : what board? (SITV, QT, etc.)
 String rsvp_board(void) {

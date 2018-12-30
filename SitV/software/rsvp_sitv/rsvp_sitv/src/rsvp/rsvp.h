@@ -26,20 +26,20 @@
 	#include <SerialFlash.h>
 	#include <Embedis.h>
 
-	#include "rsvp_options.h"
-	#include "rsvp_pins.h"
-    #include "src/util/util_misc.h"
-	#include "src/EEPROM/ieeprom.h"
-	#include "src/ADC/i2c_adc.h"
-	#include "src/FRAM/i2c_fram.h"
-	#include "src/SDcard/SDcard.h"
-	#include "src/AUDIO/DSP_Audio.h"
-	#include "src/GFX/spi_oled.h"
-	#include "src/EMBEDIS/commands.h"
-	#include "src/EMBEDIS/keystore.h"
+	#include "../rsvp/rsvp_options.h"
+	#include "../rsvp/rsvp_pins.h"
+    #include "../util/util_misc.h"
+	#include "../EEPROM/ieeprom.h"
+	#include "../ADC/i2c_adc.h"
+	#include "../FRAM/i2c_fram.h"
+	#include "../SDcard/SDcard.h"
+	#include "../AUDIO/DSP_Audio.h"
+	#include "../GFX/spi_oled.h"
+	#include "../EMBEDIS/commands.h"
+	#include "../EMBEDIS/keystore.h"
 
   // Include Wavetable and Waveform Samples for the DSP_Audio System
   // Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!
-  #include "src/samples/piano_samples.h" 
+  #include "../samples/piano_samples.h" 
 
 #endif

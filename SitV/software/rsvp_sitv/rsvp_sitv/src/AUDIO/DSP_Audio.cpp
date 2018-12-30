@@ -24,7 +24,7 @@
    ======================================================================================
 */
 
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 // GUItool: begin automatically generated code
 AudioInputAnalogStereo   adcs_in;          //xy=249,392

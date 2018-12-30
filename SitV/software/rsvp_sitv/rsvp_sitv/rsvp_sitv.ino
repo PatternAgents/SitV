@@ -25,7 +25,7 @@
     
    ======================================================================================
 */
-#include "rsvp.h"
+#include "src/rsvp/rsvp.h"
 
 // Embedis will run on the USB Virtual Serial port ("Serial"). 
 // Use the Arduino serial monitor and type "COMMANDS" to get started.

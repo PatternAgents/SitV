@@ -1,5 +1,5 @@
  
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 void serial_printf(const char *fmt, ...) {
   char buf[128];

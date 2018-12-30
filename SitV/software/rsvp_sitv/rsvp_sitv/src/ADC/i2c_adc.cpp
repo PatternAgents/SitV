@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 Adafruit_ADS1015 eadc;  /* Use ADS1015 for 12-bit version, ADS1115 for 16-bit version */
 

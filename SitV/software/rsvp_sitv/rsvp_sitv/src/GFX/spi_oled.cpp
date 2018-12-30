@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 #if (RSVP_DISPLAY_TYPE == SH1106)
   #include <Adafruit_GFX.h>

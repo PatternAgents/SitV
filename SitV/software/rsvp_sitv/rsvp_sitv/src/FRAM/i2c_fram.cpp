@@ -14,7 +14,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 Adafruit_FRAM_I2C fram = Adafruit_FRAM_I2C();
 

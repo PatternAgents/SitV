@@ -15,7 +15,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "../../rsvp.h"
+#include "../rsvp/rsvp.h"
 
 const int sdCardSelect = BUILTIN_SDCARD;
 Sd2Card card;

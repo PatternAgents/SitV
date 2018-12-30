@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <String.h>
-#include "../../rsvp_options.h"
+#include "../rsvp/rsvp_options.h"
 
 template <uint32_t a, uint32_t b, uint32_t c, uint32_t d>
 struct FOURCC
