@@ -53,6 +53,20 @@ together with several Teensy Audio Modules.
 "SitV" is primarily a firmware development and testing tool, 
 for developing new Eurorack based synthesizer modules and firmware.
 
+----------------------------------------
+## DSP Audio Pipeline
+
+(Performance Test Pipeline - Subject to change in final versions!)
+[![SitV DSP Pipeline](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/DSP_Audio?raw=true)Spoken into the Void - DSP Pipeline](https://github.com/patternagents/SitV)
+
+- 16 Wavetable Voices (with FX)
+- 8 Drum Voices
+- 8 String Voices
+- 2 Noise/Complex Voices
+- 2 SDcard .wav file Voices
+- 2 USB Inputs
+- 2 USB Outputs
+- 2 Audio DAC (Line) Outputs
 
 ---------------------------------------
 ## SitV Status <a name="SitV_Status"/>
@@ -69,6 +83,10 @@ for developing new Eurorack based synthesizer modules and firmware.
 **12/23/2018:**
 - "Serial+MIDIx16+Audio" compiles with Hemishere 1.7A
 - "MIDIx16" to Serial4 MIDI router : Tested and Working
+
+**01/01/2019
+- rsvp_sitv: firmware update (raw testing version)
+- rsvp_sitv: Serial+MIDIx16+Audio, OLED drivers tested
 
 ---------------------------------------
 ## SitV Model Images
