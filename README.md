@@ -57,7 +57,7 @@ for developing new Eurorack based synthesizer modules and firmware.
 ## DSP Audio Pipeline
 
 (Performance Test Pipeline - Subject to change in final versions!)
-[![SitV DSP Pipeline](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/DSP_Audio?raw=true)Spoken into the Void - DSP Pipeline](https://github.com/patternagents/SitV)
+[![SitV DSP Pipeline](https://raw.githubusercontent.com/patternagents/SitV/master/SitV/images/DSP_Audio.png?raw=true)Spoken into the Void - DSP Pipeline](https://github.com/patternagents/SitV)
 
 - 16 Wavetable Voices (with FX)
 - 8 Drum Voices
