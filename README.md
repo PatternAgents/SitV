@@ -78,15 +78,15 @@ for developing new Eurorack based synthesizer modules and firmware.
 - R1.0.0 : Initial Bringup and Testing
 - Teensy3.5 working correctly
 - Teensy3.6 SPI Bus Issue with alternate SPI pins
-- Ornament&Crime R1.3.3 Up and Running
+- Ornament&Crime R1.3.3 Up and Running on Teensy3.5
 
 **12/23/2018:**
-- "Serial+MIDIx16+Audio" compiles with Hemishere 1.7A
-- "MIDIx16" to Serial4 MIDI router : Tested and Working
+- "Serial+MIDIx16+Audio" compiles with Hemishere 1.7A on Teensy3.5
+- "MIDIx16" to Serial4 MIDI router : Tested and Working on 3.5 & 3.6
 
-**01/01/2019
-- rsvp_sitv: firmware update (raw testing version)
-- rsvp_sitv: Serial+MIDIx16+Audio, OLED drivers tested
+**01/01/2019:**
+- rsvp_sitv: firmware update (raw testing version) running on 3.5 & 3.6
+- rsvp_sitv: Serial+MIDIx16+Audio, OLED drivers tested on 3.5 & 3.6
 
 ---------------------------------------
 ## SitV Model Images
