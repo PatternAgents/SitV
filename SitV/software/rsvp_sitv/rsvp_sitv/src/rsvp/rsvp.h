@@ -38,8 +38,11 @@
 	#include "../EMBEDIS/commands.h"
 	#include "../EMBEDIS/keystore.h"
 
-  // Include Wavetable and Waveform Samples for the DSP_Audio System
-  // Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!
-  #include "../samples/piano_samples.h" 
+	// Include Wavetable and Waveform Samples for the DSP_Audio System
+	// Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!
+	#include "../samples/piano_samples.h" 
+
+	extern void rsvp_setup(void);
+	extern void rsvp_loop(void);
 
 #endif

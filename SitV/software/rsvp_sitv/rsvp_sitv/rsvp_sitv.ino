@@ -22,61 +22,26 @@
 
     Intended for 3.5, 3.6, 4.0 portability over raw performance
     (we'll see how well that goes...)
+
+    Current SitV Teensy 3.6 Test Settings
+    -------------------------------------
+    Board: Teensy 3.6
+    USB Type: Serial + MIDIx16 + Audio
+    CPU Speed: 240Mhz (Overclock)
     
    ======================================================================================
 */
 #include "src/rsvp/rsvp.h"
 
-// Embedis will run on the USB Virtual Serial port ("Serial"). 
-// Use the Arduino serial monitor and type "COMMANDS" to get started.
-// Make sure "No line ending" is -NOT- selected. All others should work.
-//
-Embedis embedis(RSVP_CONSOLE);
-
+// basic templates to start - add apps once the core is tested...
 void setup() 
 {
-    // Start the Serial Console
-    RSVP_CONSOLE.begin(115200);
-    // wait for serial port to connect 
-    #if (RSVP_CONSOLE_WAIT)
-      while (!RSVP_CONSOLE) { ; }
-    #endif
-
-    // Start Logging
-    LOG( String() + F("[ RSVP : Embedis    : Installed ]") );
-    
-    // start all the subsystems and log it
-    EEPROM_setup("EEPROM");
-    LOG( String() + F("[ RSVP : EEPROM     : EEPROM Embedis dictionary Installed ]") );
-    
-    I2C_FRAM_setup("FRAM");
-    LOG( String() + F("[ RSVP : Embedis    : FM24W256-G Embedis dictionary Installed ]") );
-    
-    I2C_ADC_setup(RSVP_EADC_GAIN); 
-    LOG( String() + F("[ RSVP : I2C_ADC    : ADS1015/ADS1115 driver Installed ]") );
-
-    DSP_Audio_setup();
-    LOG( String() + F("[ RSVP : DSP_Audio  : DSP/Audio driver Installed ]") );
-
-    SDcard_setup();
-    LOG( String() + F("[ RSVP : SDCard     : SDIO Driver Installed ]") );
-
-    SPI_OLED_setup(); 
-    LOG( String() + F("[ RSVP : SD1106     : OLED Driver Installed ]") );    
-
-    commands_setup();
-    LOG( String() + F("[ RSVP : Embedis    : type 'commands' to get a list of installed Embedis commands ]") );
-
-    // end logging
-    LOG( String() + F(" ") );
+  // rsvp - initialize all subsystems
+  rsvp_setup();
 }
 
 void loop() 
 {
-    /* Always call the process method from the main loop (or a timer) to run the Embedis system */
-    embedis.process();
-
-    /* Give the internal RTOS time to task switch in ESP8266, Edison, Currie, etc.   */
-    /* not really necessary on AVR or Cortex platforms, but hey - it doesn't hurt... */
-    yield(); 
+  // rsvp - run any processes
+  rsvp_loop();
 }
