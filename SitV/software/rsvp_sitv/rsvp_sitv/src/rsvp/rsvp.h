@@ -34,7 +34,8 @@
 	#include "../FRAM/i2c_fram.h"
 	#include "../SDcard/SDcard.h"
 	#include "../AUDIO/DSP_Audio.h"
-	#include "../GFX/spi_oled.h"
+	//#include "../GFX/spi_oled.h"
+	#include "../GFX/display.h"
 	#include "../EMBEDIS/commands.h"
 	#include "../EMBEDIS/keystore.h"
 
