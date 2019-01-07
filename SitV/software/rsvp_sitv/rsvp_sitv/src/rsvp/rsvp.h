@@ -34,14 +34,14 @@
 	#include "../FRAM/i2c_fram.h"
 	#include "../SDcard/SDcard.h"
 	#include "../AUDIO/DSP_Audio.h"
-	//#include "../GFX/spi_oled.h"
-	#include "../GFX/display.h"
+	#include "../GFX/spi_oled.h"
 	#include "../EMBEDIS/commands.h"
 	#include "../EMBEDIS/keystore.h"
 
 	// Include Wavetable and Waveform Samples for the DSP_Audio System
 	// Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!
-	#include "../samples/piano_samples.h" 
+	#include "../samples/Flute_100kbyte_samples.h"
+	#include "../samples/epiano_samples.h"
 
 	extern void rsvp_setup(void);
 	extern void rsvp_loop(void);

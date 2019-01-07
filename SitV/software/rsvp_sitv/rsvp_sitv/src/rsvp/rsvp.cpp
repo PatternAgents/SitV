@@ -50,8 +50,8 @@ void rsvp_setup(void) {
     SDcard_setup();
     LOG( String() + F("[ RSVP : SDCard     : SDIO Driver Installed ]") );
 
-    //SPI_OLED_setup(); 
-    //LOG( String() + F("[ RSVP : SD1106     : OLED Driver Installed ]") );    
+    SPI_OLED_setup();
+    LOG( String() + F("[ RSVP : SD1106     : GFX/OLED Driver Installed ]") );    
 
     commands_setup();
     LOG( String() + F("[ RSVP : Embedis    : type 'commands' to get a list of installed Embedis commands ]") );

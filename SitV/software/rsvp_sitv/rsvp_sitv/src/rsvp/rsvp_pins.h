@@ -57,14 +57,14 @@
   // SPI Bus
   #define OLED_DC   26        //6-26**
   #define OLED_RST  27        //7-27
-  #define OLED_CS    8        //8-20**
+  #define OLED_CS    8        //8-10
   #define OLED_MOSI  7        //11-7**
   #define OLED_MISO 12        //12-12
   #define OLED_SCK  14
 
 
   #define DAC_RST   28        //9
-  #define DAC_CS    10        //10
+  #define DAC_CS    10        //10-8
   #define DAC_MOSI   7        //11
   #define DAC_MISO   12       //12
   #define DAC_SCK   14        //13

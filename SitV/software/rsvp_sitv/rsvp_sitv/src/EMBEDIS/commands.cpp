@@ -91,10 +91,68 @@ void commands_setup(void)
         e->response(Embedis::OK);
     });
 
+    /* SDcard cat a file */
     Embedis::command( F("cat"), [](Embedis* e) {
         if (e->argc != 2) return e->response(Embedis::ARGS_ERROR);
          sdCatFile(e->argv[1]);
          e->response(Embedis::OK);
     });
+
+	/* create an interactive "drum" command */
+	/* drum instance# frequency# length# mix# pitch# */
+    Embedis::command( F("drum"), [](Embedis* e) {
+        if (e->argc != 6) return e->response(Embedis::ARGS_ERROR);
+        int instrument_num = String(e->argv[1]).toInt();
+		int instrument_freq = String(e->argv[2]).toInt();
+		int instrument_dur = String(e->argv[3]).toInt();
+		float instrument_mix = String(e->argv[4]).toFloat();
+		float instrument_pitch = String(e->argv[5]).toFloat();
+		DSP_Audio_play_drum(instrument_num, instrument_freq, (float) instrument_dur, instrument_mix, instrument_pitch);
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "wavetable" command */
+	/* wave instance# frequency# length# amplitude# */
+    Embedis::command( F("wave"), [](Embedis* e) {
+        if (e->argc != 5) return e->response(Embedis::ARGS_ERROR);
+        int instrument_num = String(e->argv[1]).toInt();
+		int instrument_freq = String(e->argv[2]).toInt();
+		int instrument_dur = String(e->argv[3]).toInt();
+		float instrument_amp = String(e->argv[4]).toFloat();
+		DSP_Audio_play_wavetable(instrument_num, instrument_freq, instrument_dur, instrument_amp );
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "string" command */
+	/* string instance# frequency# length# velocity# */
+    Embedis::command( F("string"), [](Embedis* e) {
+        if (e->argc != 5) return e->response(Embedis::ARGS_ERROR);
+        int instrument_num = String(e->argv[1]).toInt();
+		int instrument_freq = String(e->argv[2]).toInt();
+		int instrument_dur = String(e->argv[3]).toInt();
+		float instrument_amp = String(e->argv[4]).toFloat();
+		DSP_Audio_play_string(instrument_num, instrument_freq, instrument_dur, instrument_amp );
+		e->response(Embedis::OK);
+    });
+
+	/*
+	Embedis::command( F("clear"), [](Embedis* e) {
+		GRAPHICS_BEGIN_FRAME(false);
+		graphics.clearRect(0,0,128,64);
+		GRAPHICS_END_FRAME(); 
+		display::Flush();
+		display::Update();
+        e->response(Embedis::OK);
+    });
+
+	Embedis::command( F("draw"), [](Embedis* e) {
+		GRAPHICS_BEGIN_FRAME(false);
+		graphics.drawFrame(0,0,128,64);
+		GRAPHICS_END_FRAME(); 
+		display::Flush();
+		display::Update();
+        e->response(Embedis::OK);
+    });
+	*/
 
 }

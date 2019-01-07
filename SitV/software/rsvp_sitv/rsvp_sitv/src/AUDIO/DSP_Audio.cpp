@@ -137,10 +137,35 @@ AudioConnection          patchCord91(mixer[19], 0, dacs_out, 1);
 AudioConnection          patchCord92(mixer[18], 0, dacs_out, 0);
 // GUItool: end automatically generated code
 
-void DSP_Audio_setup(void) 
-{
+void DSP_Audio_setup(void) {
     //initialize all the Audio objects.
     AudioMemory(120);
     dacs_out.analogReference(INTERNAL);
+
 }
   
+void DSP_Audio_loop(void) {
+}
+
+void DSP_Audio_play_drum(int drum_num, int drum_freq, int drum_length, float drum_secmix, float drum_pitchmod) {
+			drum[drum_num].frequency(drum_freq);
+		    drum[drum_num].length(drum_length);
+            drum[drum_num].secondMix(drum_secmix);
+            drum[drum_num].pitchMod(drum_pitchmod);  
+			drum[drum_num].noteOn();
+}
+
+void DSP_Audio_play_wavetable(int wave_num, int wave_freq, int wave_length, float wave_amp) {
+			wavetable[wave_num].setInstrument(epiano);
+			wavetable[wave_num].amplitude(wave_amp);
+            wavetable[wave_num].playFrequency(wave_freq);
+			wavetable[wave_num].amplitude(wave_amp);
+			delay(wave_length);
+            wavetable[wave_num].stop();
+}
+
+void DSP_Audio_play_string(int string_num, int string_freq, int string_length, float string_velocity) {
+			string[string_num].noteOn(string_freq, string_velocity);
+			delay(string_length);
+			string[string_num].noteOff(string_velocity);
+}
