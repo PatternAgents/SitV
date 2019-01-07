@@ -8,13 +8,15 @@ Example Commands :
 
 ls - directory of the SDcard
 
-cat filename.txt - print the file to the console
+cat filename.txt - print filename.txt from the SDcard to the console
 
 wave 0 220 1000 1.0 - play wavetable[0] at 220Hz for 1000ms with an amplitude of 1.0 (max) 
 
 string 0 100 500 0.7 - play string[0] at 100Hz for 500ms with a velocity of 0.7
 
 drum 0 60 300 0.0 1.0  - play drum[0] at 60Hz for 300ms with a secondmix of 0.0 and pitchmix of 1.0
+
+mixer 0 3 0.75 - set mixer[0] Input #3 to 3/4 amplitude (volume) 
 
 ---------------------------------------
 

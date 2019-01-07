@@ -1,0 +1,59 @@
+-----------------------------------------------------------------------------
+Spoken Into The VOID - by PatternAgents, LLC
+
+[ RSVP : Embedis    : HELP.TXT ]
+
+COMMANDS - list of installed Embedis commands         "commands"
+PUBLISH  - publish to an Embedis Channel              "publish LOG"
+SUBSCRIBE - subscribe to an Embedis Channel           "subscribe LOG"
+UNSUBSCRIBE  - unsubscribe to an Embedis Channel      "unsubscribe LOG"
+DICTIONARIES - list of installed Embedis dictionaries "EEPROM", "I2C_FRAM"
+GET - print a key from the selected dictionary        "get rsvp_board"
+SET - set a key in the selected dictionary            "set rsvp_board SitV"
+DEL - delete a key in the selected dictionary         "del rsvp_board"
+KEYS - list all the keys in the selected dictionary   "keys"
+SELECT - select the current dictionary                "select I2C_FRAM"
+pinMode - Arduino pinMode command                     "pinMode 0 OUTPUT"
+digitalWrite -  Arduino digitalWrite command          "digitalWrite 0 LOW"
+digitalRead - Arduino digitalRead command             "digitalRead 0"
+analogRead - Arduino analogRead command               "analogRead A0"
+adcRead - ADS1115 External ADC read command           "adcRead 0"
+sdInfo - information on the SDcard format             "sdInfo"
+ls - list all the files on the SDcard                 "ls"
+cat - print a file from the SDcard to the console     "cat README.TXT"
+
+AUDIO DSP COMMANDS :
+
+drum   - instance# frequency# length# mix# pitch#     "drum 0 60 300 0.5 1.0"
+wave   - instance# frequency# length# amplitude#      "wave 0 440 300 1.0"
+string - instance# frequency# length# velocity#       "string 0 220 300 1.0"
+mixer  - instance# input# volume#                     "mixer 0 3 1.0" 
+noise  - instance# volume#                            "noise 0 1.0"
+pink   - instance# volume#                            "pink 0 1.0"
+filter - instance# freq Q Octave                      "filter 0 440 0.707 0.0"
+env    - instance# length A H D S R                   "env 0 300 30 50 45 1.0 100"
+sdwav  - instance# filename                           "sdwav 0 WAV/SDTEST.WAV"
+
+NOTES:
+1) Noise and Pink MUST be set to a non-zero value to turn them on
+2) When in doubt, reduce gains to avoid clipping & overflow
+3) Four input Mixers are generally set to 0.25 on all inputs.
+
+WAVEtable Instances 0-15
+DRUM Instances 0-7
+STRING Instances 0-7
+NOISE/PINK Instances 0-1
+WAVEFORM Instances 0-1
+SINE Instance 0-1
+ENVELOPE Instances 0-1
+FILTER Instances 0-2
+MIXER Instances 0-19
+
+For a more detailed block diagram - see : 
+https://github.com/PatternAgents/SitV/blob/master/SitV/images/DSP_Audio.png
+
+For more inforamtion - see :
+https://github.com/PatternAgents/SitV/wiki
+
+-----------------------------------------------------------------------------
+
