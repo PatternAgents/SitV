@@ -1,0 +1,10 @@
+MIDI Routing
+------------
+
+0.0.1 : Simple 1:1 MIDI Routing, no filtering
+	1) latency seems high?
+        2) Might need to try reducing the Audio DSP overhead
+	3) Polling loop issues/slow, recode as callbacks, etc.
+
+
+

@@ -17,14 +17,16 @@
 #ifndef RSVP_H_
 #define RSVP_H_
 
-  #include <Arduino.h>
-  #include <stdarg.h>
-	#include <Audio.h>
-	#include <Wire.h>
-	#include <SPI.h>
-	#include <SD.h>
-	#include <SerialFlash.h>
-	#include <Embedis.h>
+    #include <Arduino.h>				// Arduino IDE basics
+    #include <stdarg.h>					// C standard arguments
+	#include <Audio.h>					// PJRC Teensy Audio Library
+	#include <Wire.h>					// I2C Communications Library
+	#include <SPI.h>					// SPI communications Library
+	#include <SD.h>						// SDIO SDcard Library
+	#include <SerialFlash.h>			// Flash Memory Library
+	#include <MIDI.h>					// Serial MIDI Library
+    #include <USBHost_t36.h>			// USB MIDI Host Library
+	#include <Embedis.h>				// Embedis Dictionary Library
 
 	#include "../rsvp/rsvp_options.h"
 	#include "../rsvp/rsvp_pins.h"
@@ -35,8 +37,10 @@
 	#include "../SDcard/SDcard.h"
 	#include "../AUDIO/DSP_Audio.h"
 	#include "../GFX/spi_oled.h"
-	#include "../EMBEDIS/commands.h"
+
+	#include "../MIDI/rsvp_midi.h"
 	#include "../EMBEDIS/keystore.h"
+	#include "../EMBEDIS/commands.h"
 
 	// Include Wavetable and Waveform Samples for the DSP_Audio System
 	// Note Bene : careful with large samples not to overflow the 256K/512/1M flash memory size!!!

@@ -4,20 +4,22 @@ RSVP is a simple framework for using and testing embedded systems.
 
 RSVP uses the Embedis console to interactively enter commands for testing.
 
-Example Commands :
+See  "SDCARD/HELP.TXT" for help
 
-ls - directory of the SDcard
+--------------------------------------
+## Contents
 
-cat filename.txt - print filename.txt from the SDcard to the console
+SDCARD    - copy contents to an SDcard for the Teensy3.6
 
-wave 0 220 1000 1.0 - play wavetable[0] at 220Hz for 1000ms with an amplitude of 1.0 (max) 
+libraries - install into Arduino/Libraries
 
-string 0 100 500 0.7 - play string[0] at 100Hz for 500ms with a velocity of 0.7
+rsvp_sitv - Arduino Source code
 
-drum 0 60 300 0.0 1.0  - play drum[0] at 60Hz for 300ms with a secondmix of 0.0 and pitchmix of 1.0
-
-mixer 0 3 0.75 - set mixer[0] Input #3 to 3/4 amplitude (volume) 
-
+Requirements :
+Teensy3.6 Module
+Formatted SDcard
+Arduino 1.8.8+
+TeensyDuino 1.4.5+
 ---------------------------------------
 
 ## SitV Documentation Index <a name="SitV_documentation_index"/>

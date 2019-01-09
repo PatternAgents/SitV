@@ -21,5 +21,12 @@
   extern void DSP_Audio_play_drum(int drum_num, int drum_freq, int drum_length, float drum_secmix, float drum_pitchmod);
   extern void DSP_Audio_play_wavetable(int wave_num, int wave_freq, int wave_length, float wave_amp);
   extern void DSP_Audio_play_string(int string_num, int string_freq, int string_length, float string_velocity);
+  extern void DSP_Audio_mixer(int mixer_num, int mixer_input, float mixer_amplitude);
+  extern void DSP_Audio_filter(int filter_num, int filter_freq, float filter_Q, float filter_octave);
+  extern void DSP_Audio_USB_in(void);
+  extern void DSP_Audio_noise(int noise_num, float noise_amplitude);
+  extern void DSP_Audio_pinknoise(int noise_num, float noise_amplitude);
+  extern void DSP_Audio_envelope(int env_num, int env_length, float env_A, float env_H, float env_D, float env_S, float env_R);
+  extern void DSP_Audio_playSdWav(int wsd_num, char *filepath);
 
 #endif

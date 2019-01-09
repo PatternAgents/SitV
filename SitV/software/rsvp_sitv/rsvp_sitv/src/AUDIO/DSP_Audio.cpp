@@ -27,9 +27,10 @@
 #include "../rsvp/rsvp.h"
 
 // GUItool: begin automatically generated code
-AudioInputUSB            usb_in;           //xy=779.2699127197266,1015.0872812271118
+//AudioInputUSB            usb_in;           //xy=779.2699127197266,1015.0872812271118
 AudioOutputUSB           usb_out;           //xy=1495.1269302368164,771.8174629211426
 AudioOutputAnalogStereo  dacs_out;          //xy=1506.1269302368164,950.8174324035645
+AudioSynthWaveformSine   sine[1];          //xy=134,1551
 AudioSynthWavetable      wavetable[16];
 AudioSynthKarplusStrong  string[8];        //xy=137.77779006958008,991.1110897064209
 AudioSynthSimpleDrum     drum[8];          //xy=133.96826171875,711.1110992431641
@@ -73,8 +74,8 @@ AudioConnection          patchCord27(drum[6], 0, mixer[8], 2);
 AudioConnection          patchCord28(drum[7], 0, mixer[8], 3);
 AudioConnection          patchCord29(string[0], 0, mixer[9], 0);
 AudioConnection          patchCord30(string[1], 0, mixer[9], 1);
-AudioConnection          patchCord31(playSdWav[0], 0, mixer[12], 3);
-AudioConnection          patchCord32(playSdWav[0], 1, mixer[13], 3);
+AudioConnection          patchCord31(sine[0], 0, mixer[12], 3);
+AudioConnection          patchCord32(sine[1], 0, mixer[13], 3);
 AudioConnection          patchCord33(string[2], 0, mixer[9], 2);
 AudioConnection          patchCord34(string[4], 0, mixer[10], 0);
 AudioConnection          patchCord35(string[5], 0, mixer[10], 1);
@@ -114,10 +115,10 @@ AudioConnection          patchCord68(mixer[11], 0, mixer[19], 2);
 AudioConnection          patchCord69(mixer[11], 0, mixer[16], 2);
 AudioConnection          patchCord70(mixer[11], 0, mixer[17], 2);
 AudioConnection          patchCord71(mixer[11], 0, mixer[18], 2);
-AudioConnection          patchCord72(usb_in, 0, mixer[18], 3);
-AudioConnection          patchCord73(usb_in, 0, mixer[16], 3);
-AudioConnection          patchCord74(usb_in, 1, mixer[19], 3);
-AudioConnection          patchCord75(usb_in, 1, mixer[17], 3);
+AudioConnection          patchCord72(playSdWav[0], 0, mixer[18], 3);
+AudioConnection          patchCord73(playSdWav[0], 0, mixer[16], 3);
+AudioConnection          patchCord74(playSdWav[0], 1, mixer[19], 3);
+AudioConnection          patchCord75(playSdWav[0], 1, mixer[17], 3);
 AudioConnection          patchCord76(mixer[14], 0, mixer[16], 1);
 AudioConnection          patchCord77(mixer[14], 0, mixer[18], 1);
 AudioConnection          patchCord78(mixer[15], 0, mixer[17], 1);
@@ -137,16 +138,67 @@ AudioConnection          patchCord91(mixer[19], 0, dacs_out, 1);
 AudioConnection          patchCord92(mixer[18], 0, dacs_out, 0);
 // GUItool: end automatically generated code
 
+// Waveform Generator types (the order is purely arbitrary)
+short waveform_type[16] = {
+  WAVEFORM_SINE,
+  WAVEFORM_SQUARE,
+  WAVEFORM_SAWTOOTH,
+  WAVEFORM_TRIANGLE,
+  WAVEFORM_SINE,
+  WAVEFORM_SQUARE,
+  WAVEFORM_SAWTOOTH,
+  WAVEFORM_TRIANGLE,
+  WAVEFORM_SINE,
+  WAVEFORM_SQUARE,
+  WAVEFORM_SAWTOOTH,
+  WAVEFORM_TRIANGLE,
+  WAVEFORM_SINE,
+  WAVEFORM_SQUARE,
+  WAVEFORM_SAWTOOTH,
+  WAVEFORM_TRIANGLE
+};
+
+// USB Audio Input (Stereo)
+// We need to read/set this periodically in order
+// to respond to the Host/PC Volume Adjust function
+float USB_Volume = 0.0;
+
 void DSP_Audio_setup(void) {
     //initialize all the Audio objects.
     AudioMemory(120);
     dacs_out.analogReference(INTERNAL);
+	mixer[12].gain(0, 0.0);
+	mixer[12].gain(1, 0.0);
+	mixer[12].gain(2, 0.0);
+	mixer[12].gain(3, 0.8); // sine[0]
+	mixer[13].gain(0, 0.0);
+	mixer[13].gain(1, 0.0);
+	mixer[13].gain(2, 0.0);
+	mixer[13].gain(3, 0.8); // sine[1]
+	mixer[14].gain(0, 0.8);
+	mixer[14].gain(1, 0.0);
+	mixer[14].gain(2, 0.0);
+	mixer[14].gain(3, 0.0);
+	mixer[15].gain(0, 0.8);
+	mixer[15].gain(1, 0.0);
+	mixer[15].gain(2, 0.0);
+	mixer[15].gain(3, 0.0);
+
+    sine[0].amplitude(1.0);
+    sine[1].amplitude(1.0);
+    sine[0].frequency(110);
+    sine[1].frequency(440);
+
+	waveform[0].begin(1.0, 110, waveform_type[0]);
+	waveform[1].begin(1.0, 110, waveform_type[2]);
 
 }
   
 void DSP_Audio_loop(void) {
 }
 
+// Note Bene! Consider adding interrupt guards around multiple settings for production code
+//
 void DSP_Audio_play_drum(int drum_num, int drum_freq, int drum_length, float drum_secmix, float drum_pitchmod) {
 			drum[drum_num].frequency(drum_freq);
 		    drum[drum_num].length(drum_length);
@@ -169,3 +221,42 @@ void DSP_Audio_play_string(int string_num, int string_freq, int string_length, f
 			delay(string_length);
 			string[string_num].noteOff(string_velocity);
 }
+
+void DSP_Audio_mixer(int mixer_num, int mixer_input, float mixer_amplitude) {
+			mixer[mixer_num].gain(mixer_input, mixer_amplitude);
+}
+
+void DSP_Audio_filter(int filter_num, int filter_freq, float filter_Q, float filter_octave) {
+			filter[filter_num].frequency(filter_freq);
+			filter[filter_num].resonance(filter_Q);
+			filter[filter_num].octaveControl(filter_octave);
+}
+
+void DSP_Audio_USB_in(void) {
+	        // make it a global for now...
+			// USB_Volume = usb_in.volume();
+}
+
+void DSP_Audio_noise(int noise_num, float noise_amplitude) {
+			noise[noise_num].amplitude(noise_amplitude);
+}
+
+void DSP_Audio_pinknoise(int noise_num, float noise_amplitude) {
+			pink[noise_num].amplitude(noise_amplitude);
+}
+
+void DSP_Audio_envelope(int env_num, int env_length, float env_A, float env_H, float env_D, float env_S, float env_R) {
+			envelope[env_num].attack(env_A);
+			envelope[env_num].hold(env_H);
+			envelope[env_num].decay(env_D);
+			envelope[env_num].sustain(env_S);
+			envelope[env_num].release(env_R);
+			envelope[env_num].noteOn();
+			delay(env_length);
+            envelope[env_num].noteOff();
+}
+
+void DSP_Audio_playSdWav(int wsd_num, char *filepath) {
+            playSdWav[0].play(filepath);
+}
+

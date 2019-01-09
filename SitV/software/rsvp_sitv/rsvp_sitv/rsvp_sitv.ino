@@ -31,17 +31,17 @@
     
    ======================================================================================
 */
+
+/* apps will fill in the upper tabs, the rsvp framework is under ./src */
 #include "src/rsvp/rsvp.h"
 
-// basic templates to start - add apps once the core is tested...
-void setup() 
-{
-  // rsvp - initialize all subsystems
+/* basic templates to start - add apps once the core is tested */
+void setup() {
+  /* rsvp - initialize all subsystems */
   rsvp_setup();
 }
 
-void loop() 
-{
-  // rsvp - run any processes
-  rsvp_loop();
+void loop() {
+    /* run-  the rsvp stacks */
+    rsvp_loop();
 }

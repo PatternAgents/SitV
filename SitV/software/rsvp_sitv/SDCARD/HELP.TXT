@@ -1,7 +1,14 @@
 -----------------------------------------------------------------------------
 Spoken Into The VOID - by PatternAgents, LLC
 
-[ RSVP : Embedis    : HELP.TXT ]
+For a more detailed block diagram - see : 
+https://github.com/PatternAgents/SitV/blob/master/SitV/images/DSP_Audio.png
+
+For more inforamtion - see :
+https://github.com/PatternAgents/SitV/wiki
+
+-----------------------------------------------------------------------------
+[ RSVP : Embedis    : installed commands ]
 
 COMMANDS - list of installed Embedis commands         "commands"
 PUBLISH  - publish to an Embedis Channel              "publish LOG"
@@ -22,8 +29,39 @@ sdInfo - information on the SDcard format             "sdInfo"
 ls - list all the files on the SDcard                 "ls"
 cat - print a file from the SDcard to the console     "cat README.TXT"
 
-AUDIO DSP COMMANDS :
+-----------------------------------------------------------------------------
+MIDI ROUTING :
 
+3.6.1 : Simple 1:1 MIDI Routing, no filtering
+        usbMIDIx16 : Cable 00 <--> GM Synth	(32+ voices)
+	             Cable 01 <--> serMIDI1	(Serial 4 default)
+		     Cable 02 <--> serMIDI1	(Serial 5 optional)
+		     Cable 03 <--> hostMIDI1	(USB Host MIDI1 on external USB Hub)
+		     Cable 04 <--> hostMIDI2	(USB Host MIDI2 on external USB Hub)
+		     Cable 05 <--> hostMIDI3	(USB Host MIDI3 on external USB Hub)
+		     Cable 06 <--> hostMIDI4	(USB Host MIDI4 on external USB Hub)
+		     Cable 07 <--> unassigned
+		     Cable 08 <--> unassigned
+		     Cable 09 <--> unassigned
+		     Cable 10 <--> unassigned
+		     Cable 11 <--> unassigned
+		     Cable 12 <--> unassigned
+		     Cable 13 <--> unassigned
+		     Cable 14 <--> unassigned
+		     Cable 15 <--> unassigned
+		     
+-----------------------------------------------------------------------------
+AUDIO DSP NOTES :
+
+1) Noise and Pink MUST be set to a non-zero value to turn them on
+2) When in doubt, reduce mixer gains to avoid clipping & overflow
+3) Four input Mixers are generally set to 0.25 on all inputs.
+
+AUDIO DSP INSTANCES :
+WAVE  DRUM  STRING  NOISE WAVEFORM  SINE  ENV  FILTER  MIXER
+0-15  0-7   0-7     0-1   0-1       0-1   0-1  0-2     0-19
+
+AUDIO DSP COMMANDS :
 drum   - instance# frequency# length# mix# pitch#     "drum 0 60 300 0.5 1.0"
 wave   - instance# frequency# length# amplitude#      "wave 0 440 300 1.0"
 string - instance# frequency# length# velocity#       "string 0 220 300 1.0"
@@ -34,26 +72,4 @@ filter - instance# freq Q Octave                      "filter 0 440 0.707 0.0"
 env    - instance# length A H D S R                   "env 0 300 30 50 45 1.0 100"
 sdwav  - instance# filename                           "sdwav 0 WAV/SDTEST.WAV"
 
-NOTES:
-1) Noise and Pink MUST be set to a non-zero value to turn them on
-2) When in doubt, reduce gains to avoid clipping & overflow
-3) Four input Mixers are generally set to 0.25 on all inputs.
-
-WAVEtable Instances 0-15
-DRUM Instances 0-7
-STRING Instances 0-7
-NOISE/PINK Instances 0-1
-WAVEFORM Instances 0-1
-SINE Instance 0-1
-ENVELOPE Instances 0-1
-FILTER Instances 0-2
-MIXER Instances 0-19
-
-For a more detailed block diagram - see : 
-https://github.com/PatternAgents/SitV/blob/master/SitV/images/DSP_Audio.png
-
-For more inforamtion - see :
-https://github.com/PatternAgents/SitV/wiki
-
 -----------------------------------------------------------------------------
-

@@ -25,6 +25,8 @@
 
 void commands_setup(void)
 {
+	/* Arduino-Like Pin Commands               */
+	/* --------------------------------------- */
     /* create an interactive "pinMode" command */
     Embedis::command( F("pinMode"), [](Embedis* e) {
         if (e->argc != 3) return e->response(Embedis::ARGS_ERROR);
@@ -79,6 +81,8 @@ void commands_setup(void)
         e->response(':', I2C_ADC_Read(pin));
     });
     
+	/* SDcard and Filesystems Commands         */
+	/* --------------------------------------- */
     /* SDcard Information */
     Embedis::command( F("sdInfo"), [](Embedis* e) {
         sdCardInfo();
@@ -98,6 +102,15 @@ void commands_setup(void)
          e->response(Embedis::OK);
     });
 
+    /* "help" - cat the "help.txt" file */
+    Embedis::command( F("help"), [](Embedis* e) {
+		 char helpfile[] = "HELP.TXT";
+         sdCatFile(helpfile);
+         e->response(Embedis::OK);
+    });
+
+	/* DSP Audio Control Commands              */
+	/* --------------------------------------- */
 	/* create an interactive "drum" command */
 	/* drum instance# frequency# length# mix# pitch# */
     Embedis::command( F("drum"), [](Embedis* e) {
@@ -135,6 +148,76 @@ void commands_setup(void)
 		e->response(Embedis::OK);
     });
 
+	/* create an interactive "mixer" command */
+	/* mixer instance# input# volume */
+    Embedis::command( F("mixer"), [](Embedis* e) {
+        if (e->argc !=4) return e->response(Embedis::ARGS_ERROR);
+        int mixer_num = String(e->argv[1]).toInt();
+		int mixer_input = String(e->argv[2]).toInt();
+		float mixer_amp = String(e->argv[3]).toFloat();
+		DSP_Audio_mixer(mixer_num, mixer_input, mixer_amp );
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "noise" command */
+	/* noise instance# volume */
+    Embedis::command( F("noise"), [](Embedis* e) {
+        if (e->argc !=3) return e->response(Embedis::ARGS_ERROR);
+        int noise_num = String(e->argv[1]).toInt();
+		float noise_amp = String(e->argv[2]).toFloat();
+		DSP_Audio_noise(noise_num, noise_amp );
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "pinknoise" command */
+	/* noise instance# volume */
+    Embedis::command( F("pink"), [](Embedis* e) {
+        if (e->argc !=3) return e->response(Embedis::ARGS_ERROR);
+        int noise_num = String(e->argv[1]).toInt();
+		float noise_amp = String(e->argv[2]).toFloat();
+		DSP_Audio_pinknoise(noise_num, noise_amp );
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "filter" command */
+	/* filter instance# freq Q Octave */
+    Embedis::command( F("filter"), [](Embedis* e) {
+        if (e->argc !=5) return e->response(Embedis::ARGS_ERROR);
+        int filter_num = String(e->argv[1]).toInt();
+		int filter_freq = String(e->argv[2]).toInt();
+		float filter_Q = String(e->argv[3]).toFloat();
+		float filter_oct = String(e->argv[4]).toFloat();
+		DSP_Audio_filter(filter_num, filter_freq, filter_Q, filter_oct );
+		e->response(Embedis::OK);
+    });
+
+	/* create an interactive "envelope" command */
+	/* env instance# length attack hold decay sustain release */
+    Embedis::command( F("env"), [](Embedis* e) {
+        if (e->argc !=8) return e->response(Embedis::ARGS_ERROR);
+        int env_num = String(e->argv[1]).toInt();
+		int env_length = String(e->argv[2]).toInt();
+		float env_A = String(e->argv[3]).toFloat();
+		float env_H = String(e->argv[4]).toFloat();
+		float env_D = String(e->argv[5]).toFloat();
+        float env_S = String(e->argv[6]).toFloat();
+		float env_R = String(e->argv[7]).toFloat();
+		DSP_Audio_envelope(env_num, env_length, env_A, env_H, env_D, env_S, env_R );
+		e->response(Embedis::OK);
+    });
+
+
+	/* create an interactive "playSdWav" command */
+	/* mixer instance# filename */
+    Embedis::command( F("sdwav"), [](Embedis* e) {
+        if (e->argc != 3) return e->response(Embedis::ARGS_ERROR);
+		 int sdwav_num = String(e->argv[1]).toInt();
+         DSP_Audio_playSdWav(sdwav_num, e->argv[2]);
+         e->response(Embedis::OK);
+    });
+
+	/* Display & GFX Control/Commands          */
+	/* --------------------------------------- */
 	/*
 	Embedis::command( F("clear"), [](Embedis* e) {
 		GRAPHICS_BEGIN_FRAME(false);

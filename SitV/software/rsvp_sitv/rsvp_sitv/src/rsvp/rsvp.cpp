@@ -53,16 +53,28 @@ void rsvp_setup(void) {
     SPI_OLED_setup();
     LOG( String() + F("[ RSVP : SD1106     : GFX/OLED Driver Installed ]") );    
 
-    commands_setup();
+	rsvp_midi_setup();
+    LOG( String() + F("[ RSVP : MIDI Host  : USB MIDIx04 Host   Installed ]") );    
+    LOG( String() + F("[ RSVP : MIDI Device: USB MIDIx16 Device Installed ]") );    
+    LOG( String() + F("[ RSVP : MIDI Serial: COM MIDIx01 Serial Installed ]") );    
+
+	commands_setup();
     LOG( String() + F("[ RSVP : Embedis    : type 'commands' to get a list of installed Embedis commands ]") );
+    LOG( String() + F("[ RSVP : Embedis    : type 'help' to get more information on installed Embedis commands ]") );
 
     // end logging
     LOG( String() + F(" ") );
 }
   
 void rsvp_loop(void) {
+    /* run the MIDI stacks */
+    rsvp_midi_loop();
+
     /* Always call the process method from the main loop (or a timer) to run the Embedis system */
     embedis.process();
+
+    /* run the MIDI stacks */
+    rsvp_midi_loop();
 
     /* Give the internal RTOS time to task switch in ESP8266, Edison, Currie, etc.   */
     /* not really necessary on AVR or Cortex platforms, but hey - it doesn't hurt... */
