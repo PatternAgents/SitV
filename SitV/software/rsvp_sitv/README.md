@@ -15,11 +15,22 @@ libraries - install into Arduino/Libraries
 
 rsvp_sitv - Arduino Source code
 
-Requirements :
+Requirements:
+
 Teensy3.6 Module
+
 Formatted SDcard
+
 Arduino 1.8.8+
+
 TeensyDuino 1.4.5+
+
+Settings:
+
+240Mhz (overclock)
+
+Serial+MIDIx16+Audio
+
 ---------------------------------------
 
 ## SitV Documentation Index <a name="SitV_documentation_index"/>
