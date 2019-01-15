@@ -1,5 +1,6 @@
 /*  DSP_Audio
     Copyright (C) 2017, 2018 PatternAgents, LLC
+	Author: Tom Moxon (& https://www.pjrc.com/teensy/gui/) 
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -197,7 +198,7 @@ void DSP_Audio_setup(void) {
 void DSP_Audio_loop(void) {
 }
 
-// Note Bene! Consider adding interrupt guards around multiple settings for production code
+// TODO: Consider adding interrupt guards around multiple settings for the production code...
 //
 void DSP_Audio_play_drum(int drum_num, int drum_freq, int drum_length, float drum_secmix, float drum_pitchmod) {
 			drum[drum_num].frequency(drum_freq);
@@ -257,6 +258,6 @@ void DSP_Audio_envelope(int env_num, int env_length, float env_A, float env_H, f
 }
 
 void DSP_Audio_playSdWav(int wsd_num, char *filepath) {
-            playSdWav[0].play(filepath);
+            playSdWav[wsd_num].play(filepath);
 }
 

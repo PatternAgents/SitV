@@ -14,10 +14,9 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-// if MIDI Serial enabled, create those instances
 #include "../rsvp/rsvp.h"
 
+// if MIDI Serial enabled, create those instances
 #if (RSVP_MIDI_S_CHANNELS > 0)
   MIDI_CREATE_INSTANCE(HardwareSerial, RSVP_MIDI_S1, serMIDI1);
 #endif
@@ -134,6 +133,7 @@ void rsvp_midi_loop(void) {
       switch (cable) {
         case  0: 
             // reserve for synth, etc.
+		    //synthMIDI.send(mtype, data1, data2, channel);
 			break;
         case  1: 
 			// use the (Serial) MIDI library send()
@@ -162,6 +162,7 @@ void rsvp_midi_loop(void) {
       switch (cable) {
         case 0:
 			// reserve for synth, etc.
+		    // synthMIDI.sendSysEx(SysExLength, usbMIDI.getSysExArray(), true);
 			break;
         case 1: 
 			// use the (Serial) MIDI library sendSysEx()

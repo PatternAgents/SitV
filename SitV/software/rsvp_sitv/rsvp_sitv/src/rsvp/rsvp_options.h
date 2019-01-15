@@ -41,12 +41,12 @@
 #define RSVP_EADC_INVERT			0			    //! one of 0/1 (1=inverted opamp output)
 #define RSVP_EADC_GAIN				1			    //! one of 0-5 gain settings
 
-/* --------------- MIDI definitions -----------------------------------------------------------------  */
-#define RSVP_MIDI_U_CHANNELS	    16
-#define RSVP_MIDI_H_CHANNELS        4
-#define RSVP_MIDI_S_CHANNELS	    1
-#define RSVP_MIDI_S1				Serial4
-#define RSVP_MIDI_S2				Serial5
+/* --------------- External MIDI type definitions -----------------------------------------------------------------  */
+#define RSVP_MIDI_U_CHANNELS	    16				//! Number of USB device MIDI channels (0-16)
+#define RSVP_MIDI_H_CHANNELS        4				//! Number of USB Host MIDI channels (0-4) on external USB Hub (4 port)
+#define RSVP_MIDI_S_CHANNELS	    1				//! Number of Serial MIDI channels (0-2)
+#define RSVP_MIDI_S1				Serial4			//! Port for Serial MIDI 1
+#define RSVP_MIDI_S2				Serial5			//! Port for Serial MIDI 2
 
 /* ------------ print debug messages to USB serial --------------------------------------------------  */
 #define RSVP_ENABLE_LOG
